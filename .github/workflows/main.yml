@@ -41,12 +41,12 @@ jobs:
           port: ${{secrets.PORT}}
           script: |
             sudo docker login -u ${{secrets.DOCKER_HUB_USER_NAME}} -p ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
-            sudo docker stop sudestada
-            sudo docker rm sudestada
-            sudo docker volume rm sudestada-odoo-extra-addons
+            sudo docker stop odoo16
+            sudo docker rm odoo16
+            #sudo docker volume rm odoo16-extra-addons
             sudo docker pull ${{secrets.DOCKER_HUB_USER_NAME}}/odoo16:latest
             sudo docker image ls -a
-            sudo docker run --name sudestada --network=host --mount source=sudestada-odoo-data,target=/var/lib/odoo --mount source=sudestada-odoo-extra-addons,target=/mnt/extra-addons -t -d  ${{secrets.DOCKER_HUB_USER_NAME}}/odoo16
+            sudo docker run --name odoo16 --network=host --mount source=odoo16-data,target=/var/lib/odoo --mount source=odoo16-extra-addons,target=/mnt/extra-addons -t -d  ${{secrets.DOCKER_HUB_USER_NAME}}/odoo16
             sudo docker system prune -a --volumes -f
 
 
