@@ -1,0 +1,36 @@
+<!--SDG-->
+<odoo>
+    <data>
+
+        <record id="partner_purchase" model="res.partner">
+            <field name="name">Purchase</field>
+            <field name="email">purchase@gmail.com</field>
+        </record>
+
+        <record id="user_purchase" model="res.users">
+            <field name="login">purchase</field>
+            <field name="password">purchase</field>
+            <field name="partner_id" ref="partner_purchase"/>
+            <field name="groups_id" eval="[
+                (4, ref('purchase.group_purchase_manager')),
+            ]"/>
+            <field name="action_id" ref="purchase.purchase_rfq"/>
+        </record>
+
+        <record id="partner_sale" model="res.partner">
+            <field name="name">Sales</field>
+            <field name="email">sales@gmail.com</field>
+        </record>
+
+        <record id="user_sale" model="res.users">
+            <field name="login">sales</field>
+            <field name="password">sales</field>
+            <field name="partner_id" ref="partner_sale"/>
+            <field name="groups_id" eval="[
+                (4, ref('purchase.group_sale_manager')),
+            ]"/>
+<!--            <field name="action_id" ref="purchase.purchase_rfq"/>-->
+        </record>
+
+    </data>
+</odoo>
