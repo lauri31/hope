@@ -33,5 +33,19 @@
 
         </record>
 
+        <record id="partner_admin" model="res.partner">
+            <field name="name">Admin</field>
+            <field name="email">admin@gmail.com</field>
+        </record>
+
+        <record id="user_sale" model="res.users">
+            <field name="login">admin</field>
+            <field name="password">admin</field>
+            <field name="partner_id" ref="partner_admin"/>
+
+<!--            <field name="action_id" ref="purchase.purchase_rfq"/>-->
+
+        </record>
+
     </data>
 </odoo>
