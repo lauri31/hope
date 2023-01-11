@@ -12,7 +12,7 @@ Andika
         'stock',
         'purchase',
         'mrp',
-        'sale'
+        'sale',
         'account',
     ],
     'data': [
