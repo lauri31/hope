@@ -2,6 +2,18 @@
 <odoo>
     <data>
 
+        <record id="uom.group_uom" model="res.groups">
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+
+        <record id="stock.group_stock_multi_locations" model="res.groups">
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+
+        <record id="stock.group_adv_location" model="res.groups">
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+
         <record id="partner_purchase" model="res.partner">
             <field name="name">Purchase</field>
             <field name="email">purchase@gmail.com</field>
@@ -12,7 +24,8 @@
             <field name="password">purchase</field>
             <field name="partner_id" ref="partner_purchase"/>
             <field name="groups_id" eval="[
-                (4, ref('purchase.group_purchase_manager')),
+                (4, ref('purchase.group_purchase_user')),
+                (4, ref('uom.group_uom')),
             ]"/>
             <field name="action_id" ref="purchase.purchase_rfq"/>
         </record>
@@ -27,24 +40,56 @@
             <field name="password">sales</field>
             <field name="partner_id" ref="partner_sale"/>
             <field name="groups_id" eval="[
-                (4, ref('sales_team.group_sale_manager')),
+                (4, ref('sales_team.group_sale_salesman')),
             ]"/>
-<!--            <field name="action_id" ref="purchase.purchase_rfq"/>-->
-
+            <field name="action_id" ref="sale.action_quotations_with_onboarding"/>
         </record>
 
-        <record id="partner_admin" model="res.partner">
-            <field name="name">Admin</field>
-            <field name="email">admin@gmail.com</field>
+        <record id="partner_production" model="res.partner">
+            <field name="name">Production</field>
+            <field name="email">production@gmail.com</field>
         </record>
 
-        <record id="user_sale" model="res.users">
-            <field name="login">admin</field>
-            <field name="password">admin</field>
-            <field name="partner_id" ref="partner_admin"/>
+        <record id="user_production" model="res.users">
+            <field name="login">production</field>
+            <field name="password">production</field>
+            <field name="partner_id" ref="partner_production"/>
+            <field name="groups_id" eval="[
+                (4, ref('mrp.group_mrp_user')),
+            ]"/>
+            <field name="action_id" ref="mrp.mrp_production_action"/>
+        </record>
 
-<!--            <field name="action_id" ref="purchase.purchase_rfq"/>-->
+        <record id="partner_inventory" model="res.partner">
+            <field name="name">Inventory</field>
+            <field name="email">inventory@gmail.com</field>
+        </record>
 
+        <record id="user_inventory" model="res.users">
+            <field name="login">inventory</field>
+            <field name="password">inventory</field>
+            <field name="partner_id" ref="partner_inventory"/>
+            <field name="groups_id" eval="[
+                (4, ref('stock.group_stock_user')),
+                (4, ref('uom.group_uom')),
+            ]"/>
+            <field name="action_id" ref="stock.stock_picking_type_action"/>
+        </record>
+
+        <record id="partner_accounting" model="res.partner">
+            <field name="name">Accounting</field>
+            <field name="email">accounting@gmail.com</field>
+        </record>
+
+        <record id="user_accounting" model="res.users">
+            <field name="login">accounting</field>
+            <field name="password">accounting</field>
+            <field name="partner_id" ref="partner_accounting"/>
+            <field name="groups_id" eval="[
+                (4, ref('account.group_account_invoice')),
+                (4, ref('uom.group_uom')),
+            ]"/>
+            <field name="action_id" ref="stock.stock_picking_type_action"/>
         </record>
 
     </data>

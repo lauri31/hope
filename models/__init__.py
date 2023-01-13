@@ -1,0 +1,2 @@
+# SDG
+from . import partner

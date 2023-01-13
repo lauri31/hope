@@ -1,0 +1,12 @@
+<!--SDG-->
+<odoo>
+    <data>
+
+<!--        HIDE MENU-->
+
+        <record model="ir.ui.menu" id="mrp.menu_mrp_unbuild">
+            <field name="action" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

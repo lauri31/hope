@@ -1,0 +1,69 @@
+<!--SDG-->
+<odoo>
+    <data>
+
+        <record id="product_uom_pieces" model="uom.uom">
+            <field name="name">PCS</field>
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="factor_inv">1</field>
+            <field name="uom_type">bigger</field>
+        </record>
+
+        <record id="product_uom_pack" model="uom.uom">
+            <field name="name">Pack</field>
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="factor_inv">1</field>
+            <field name="uom_type">bigger</field>
+        </record>
+
+        <record id="product_uom_botol" model="uom.uom">
+            <field name="name">Botol</field>
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="factor_inv">1</field>
+            <field name="uom_type">bigger</field>
+        </record>
+
+        <record id="product_uom_drum" model="uom.uom">
+            <field name="name">Drum</field>
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="factor_inv">1</field>
+            <field name="uom_type">bigger</field>
+        </record>
+
+        <record id="product_uom_dus" model="uom.uom">
+            <field name="name">Dus</field>
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="factor_inv">1</field>
+            <field name="uom_type">bigger</field>
+        </record>
+
+        <record id="product_uom_ember" model="uom.uom">
+            <field name="name">Ember</field>
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="factor_inv">1</field>
+            <field name="uom_type">bigger</field>
+        </record>
+
+        <record id="product_uom_jerigen" model="uom.uom">
+            <field name="name">Jerigen</field>
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="factor_inv">1</field>
+            <field name="uom_type">bigger</field>
+        </record>
+
+        <record id="product_uom_pail" model="uom.uom">
+            <field name="name">Pail</field>
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="factor_inv">1</field>
+            <field name="uom_type">bigger</field>
+        </record>
+
+        <record id="product_uom_roll" model="uom.uom">
+            <field name="name">Roll</field>
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="factor_inv">1</field>
+            <field name="uom_type">bigger</field>
+        </record>
+
+    </data>
+</odoo>

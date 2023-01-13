@@ -1,0 +1,34 @@
+<!--SDG-->
+<odoo>
+    <odoo>
+
+        <record id="andika_mrp_bom_form_view"  model="ir.ui.view">
+            <field name="model">mrp.bom</field>
+            <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_tmpl_id']" position="attributes">
+                    <attribute name="options">{'no_create_edit': True, 'no_open': True, 'no_create': True, 'no_edit': True}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[@name='components']/field[@name='bom_line_ids']/tree/field[@name='product_id']" position="attributes">
+                    <attribute name="options">{'no_create_edit': True, 'no_open': True, 'no_create': True, 'no_edit': True}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="andika_mrp_production_form"  model="ir.ui.view">
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='product_id']" position="attributes">
+                    <attribute name="options">{'no_create_edit': True, 'no_create': True, 'no_edit': True}</attribute>
+                </xpath>
+                    <xpath expr="//notebook/page[@name='components']/field[@name='move_raw_ids']/tree/field[@name='product_id']" position="attributes">
+                        <attribute name="options">{'no_create_edit': True, 'no_open': True, 'no_create': True, 'no_edit': True}</attribute>
+                </xpath>
+            </field>
+        </record>
+    </odoo>
+
+
+
+</odoo>
